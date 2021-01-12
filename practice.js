@@ -1,173 +1,196 @@
-/*
+/* 
   Once you complete a problem, refresh ./SpecRunner.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
 
   You can refresh the page at any time to re-run all the tests.
+
+  In this repo your job is to write functions to make each function call work properly.
+
+  Here's an example of code that will be given to you:
+
+  sayHi('Hi Katie', function(thingToSay){
+    alert(thingToSay);
+  });
+
+  It would be your job to create the sayHi function:
+
+  var sayHi = function(str, cb){
+    cb(str);
+  }
 */
 
 ////////// PROBLEM 1 //////////
 
 /*
-  Create an object called me.
-  Give it a key of name with the value being your name, and another key of age with the value being your age.
-  Then alert your name using dot notation.
+  Write a function called first that takes in two parameters, an array and a callback function.
+  Then invoke the callback function, passing in the first element in the array as it's argument.
 */
 
-//Code here
-const me = {
-  name: `Amanda`,
-  age: 30,
+// Code Here 
+
+function first(arr, cb){
+  cb(arr[0])
 }
 
-alert(me.name)
+// Do not edit the code below.
+var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+first(names, function(firstName){
+  console.log('The first name in names is ' + firstName);
+  return firstName;
+});
+// Do not edit the code above.
+
+
+
 ////////// PROBLEM 2 //////////
 
 /*
-  Make a 'favoriteThings' object that contains the following keys: band, food, person, book, movie, holiday.
-  Have the values to those keys be strings that are equal to your favorite thing in that category.
-*/
-
-//Code here
-const favoriteThings = {
-  band: 'He is Legend',
-  food: 'Pizza',
-  person: 'me',
-  book:'books',
-  movie: 'movie',
-  holiday: 'birthday',
-}
-/*
-  After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car
-  and then another key named 'brand' with the value being your favorite brand.
-*/
-
-//Code here
-favoriteThings.car = `jeep`
-favoriteThings.brand = `ethika`
-/*
-  Now use bracket or dot notation to change the value of the food key in your favoriteThings object to be 'Chicken Nuggets'
-  and change the value of the book key in your favoriteThings object to be 'Harry Potter'.
-*/
-
-//Code here
-favoriteThings.food = `Chicken Nuggets`
-favoriteThings.book = `Harry Potter`
-////////// PROBLEM 3 //////////
-
-/*
-  Create an empty Object called backPack.
-  Now, create a variable called item and set it equal to the string 'firstPocket'.
-  Using bracket notation and the item variable, add a 'firstPocket' key (or property) to backPack.
-  Set the value of that key to 'chapstick'.
-  Using dot notation, add another key (or property) to your backPack object that is named color, with the value being the color of your backpack.
-*/
-
-//Code here
-
-const backPack = {
-
-}
-const item = `firstPocket`
-
-backPack[`firstPocket`] = `chapstick`
-/*
-  After you do the above, alert your entire backPack object.
-*/
-alert(backPack)
-//Code here
-
-/*
-You probably noticed that it just alerted [object Object].
-Alerting to see the data in your Object doesn't work so well.
-Instead, console.log your whole backPack object and then check out the console.
-*/
-
-//Code here
-console.log(backPack)
-////////// PROBLEM 4 //////////
-
-// Do not edit the code below.
-var user2 = {
-  name: 'Bryan',
-  age: 24,
-  pwHash: 'U+Ldlngx2BYQk',
-  email: 'BryanSmith33@gmail.com',
-  birthday: '05/02/1990',
-  username: 'bryansmith33'
-};
-// Do not edit the code above.
-
-/*
-  Let's say I, the user, decided to change my name and email address to the following:
-  name -> 'Bryan G. Smith' and email -> 'bryan.smith@devmounta.in'.
-  Make that change without modifying the original object code above.
+  Write a function called last that takes in an array and a callback function. 
+  Then invoke the callback, passing in the last element in the array as the argument.
 */
 
 //Code Here
-user2.name = `Bryan G. Smith`
-user2.email = `bryan.smith@devmounta.in`
-/////////////////////// EXTRA PRACTICE PROBLEMS BELOW ////////////////////
-////////// MOVE ONTO NEXT SECTION BEFORE WORKING ON THESE ////////////////
+
+function last(arr,cb){
+  for (let i=0; i < arr.length; i++)
+  if (i= arr.length - 1){
+  cb(arr[i])
+  }
+}
+
+// Do not edit the code below.
+last(names, function(lastName){
+  console.log('The last name in names is ' + lastName);
+  return lastName;
+});
+// Do not edit the code above.
+
+
+
+////////// PROBLEM 3 //////////
+
+/*
+  Write a function called multiply that takes in three parameters: two numbers and a callback function.  
+  Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
+*/
+
+//Code Here
+function multiply(num1, num2, cb){
+  cb(num1 * num2)
+}
+// Do not edit the code below.
+multiply(4, 3, function(answer){
+  console.log('The answer is ' + answer); //should console.log 12
+});
+// Do not edit the code above.
+
+
+
+////////// PROBLEM 4 //////////
+
+/*
+  Write a function called contains that takes in three parameters: an array, a name and a callback.  
+  Check if the name exists in the array. 
+  If it does, invoke the callback with true as the argument. 
+  If the name does not exist, invoke the callback with false as the argument.
+*/
+
+//Code Here 
+
+function contains(arr, name, cb){
+  for (let i = 0; i < arr.length; i++)
+  if (name === arr[i]){
+    cb(true)
+  }
+  else {
+    cb(false)
+  }
+}
+
+// Do not edit the code below.
+contains(names, 'Colt', function(result){
+  if(result === true){
+    console.log('Colt is in the array');
+  } else {
+    console.log('Colt is not in the array');
+  }
+});
+// Do not edit the code above.
+
+
 
 ////////// PROBLEM 5 //////////
 
 /*
-  Create an empty object called methodCollection.
+  Write a function called uniq that takes in an array and a callback function.
+  Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
 //Code Here
 
-const methodCollection = {
-
-}
- 
-/*
-  Now add two methods (functions that are properties on objects) to your methodCollection object.
-  One called 'alertHello' which alerts 'hello' and another method called 'logHello' which logs 'hello' to the console.
-*/
-
-//Code Here
-
-methodCollection.alertHello = function(){
-
- alert(`hello`)
-
-}
-methodCollection.logHello = function(){
-  console.log(`hello`)
+function uniq(arr,cb){
+  
 }
 
-/*
-  Now call your alertHello and logHello methods.
-*/
+// Do not edit the code below.
+uniq(names, function(uniqArr){
+  console.log('The new names array with all the duplicate items removed is ', uniqArr);
+});
+// Do not edit the code above.
 
-//Code Here
 
-methodCollection(alertHello)
-methodCollection(logHello)
 
 ////////// PROBLEM 6 //////////
 
-/*
-  Create a function called makePerson which takes in name, birthday, ssn as its parameters.
-  Return a new object with all of the information that you passed in.
+/* 
+  Write a function called each that takes in an array of names and a callback function. 
+  For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-//Code Here
+//Code Here 
 
-function makePerson(name, birthday, ssn){
-  return newPerson = {...makePerson, name: name, birthday: birthday, ssn: ssn }
-}
+// Do not edit the code below.
+each(names, function(item, indice){
+  console.log('The item in the ' + indice + ' position is ' + item)
+});
+// Do not edit the code above.
+
+
+
 ////////// PROBLEM 7 //////////
 
 /*
-  Create a function called makeCard which takes in cardNumber, expirationDate, and securityCode to make a Credit Card object.
-  Return that object so that whenever you invoke makeCard, you get a brand new credit card.
+  Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
+  When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-//Code Here
+// Code here
 
-function makeCard (cardNumber, expirationDate, securityCode){
-  
-}
+// Do not edit the code below.
+var users = [
+  {
+    id: '12d',
+    email: 'tyler@gmail.com',
+    name: 'Tyler',
+    address: '167 East 500 North'
+  },
+  {
+    id: '15a',
+    email: 'cahlan@gmail.com',
+    name: 'Cahlan',
+    address: '135 East 320 North'
+  },
+  {
+    id: '16t',
+    email: 'ryan@gmail.com',
+    name: 'Ryan',
+    address: '192 East 32 North'
+  },
+];
+
+getUserById(users, '16t', function(user){
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
+});
+// Do not edit the code above.
